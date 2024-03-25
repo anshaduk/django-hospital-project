@@ -1,43 +1,37 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import BookingForm
+from .models import Departments,Doctors
 
 # Create your views here.
 def index(request):
-    numbers={
-        'fruits':['apple','banana','grapes']
-    }
-        
-    
-    
-
-
-    # numbers={
-    # 'num1':-10.9,
-    # }
-
-    # person={
-    #     'name':'Kumar',
-    #     'age':40,
-    #     'place':'Calicut'
-    # }
-    # return HttpResponse("Home Page")
-    return render(request,'index.html',numbers)
+   
+    return render(request,'index.html')
 
 def about(request):
     # return HttpResponse("About Page")
     return render(request,'about.html')
 
 def booking(request):
-    # return HttpResponse("Booking page")
-    return render(request,'booking.html')
+    form = BookingForm()
+    dict_form={
+        'form':form
+    }
+    return render(request,'booking.html',dict_form)
 
 def doctors(request):
+    dict_docs={
+        'doctors':Doctors.objects.all()
+    }
     # return HttpResponse("Doctors Page")
-    return render(request,'doctors.html')
+    return render(request,'doctors.html',dict_docs)
 
 def contact(request):
     # return HttpResponse("Contact Page")
     return render(request,'contact.html')
 
 def department(request):
-    return render(request,'department.html')
+    dict_dept={
+       'dept' :Departments.objects.all()
+    }
+    return render(request,'department.html',dict_dept)

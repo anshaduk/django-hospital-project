@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,6 +20,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
   </head>
 
   <body>
@@ -59,7 +61,7 @@
       </div>
     </nav>
     {% block content %}{% endblock %}
-    <section class="fixed-bottom">
+    <section class="">
       <footer class="pt-2 pb-2 bg-primary text-light">
         <div class="container">
           <div class="row align-items-center">
