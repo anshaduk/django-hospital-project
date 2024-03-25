@@ -6,11 +6,13 @@
 {% block content %}
 <h2 class="text-center">Make An Appointment</h2>
 <hr>
-<div class="container w-50 text-center my-5">
-<form action=""> 
-    {% crispy form %}
-    {% csrf_token %}
-    <button type="submit">Submit</button>
-</form>
+<div class="container w-50 text-center p-3 my-5 bg-info">
+    <form action="" method="POST"> 
+        {% csrf_token %}
+        {{form.as_p}}
+        <br>
+        <button class="btn btn-primary mb-4" type="submit">Submit</button>
+    
+    </form>
 </div>
 {% endblock %}
